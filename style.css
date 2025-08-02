@@ -1,16 +1,15 @@
 .nav2 {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #ffffff;
-	border: gray 1px solid;
-    width: 100%;
-    box-sizing: border-box;
-    position: sticky ;
-    top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 40px;
+  background-color: #ffffffcc;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 .button {
   float: left;
@@ -31,13 +30,10 @@
 }
 
 
-.justifyleft {
-    display: flex;
-    justify-content: center;
-}
+.justifyleft,
 .justifyright {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  align-items: center;
 }
 .navbutton {
     display: block;
@@ -49,31 +45,21 @@
     font-style: SemiBold;
 }
 
+.navbuttonname a,
 .navbutton a {
-    display: block;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    padding: 18px 13px;
-    text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: #333;
+  text-decoration: none;
+  padding: 10px 16px;
+  transition: all 0.3s ease;
+  border-radius: 6px;
 }
 
-.navbuttonname {
-    justify-content: left;
-    display: block;
-    color: grey;
-    font-family: "Montserrat", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 600;
-    font-style: SemiBold;
-}
 
-.navbuttonname a {
-    display: block;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    padding: 18px 13px;
-    text-decoration: none;
-}
+
+
 
 html, body {
   width: 100%;
@@ -118,14 +104,39 @@ html, body {
   font-size: 70px;
   padding-left: 150px;
 }
+.experience-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 40px 100px;
+  gap: 40px;
+}
 
-.experiencecontainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 20px;
-    padding: 2px 16px;
+.experience-card {
+  width: 28%;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+  padding: 20px;
+  text-align: left;
+  font-family: "Montserrat", sans-serif;
+}
+
+.experience-card:hover {
+  transform: translateY(-5px);
+}
+
+.experience-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.experience-description {
+  font-size: 14px;
+  color: #666;
 }
 .experienceheader {
     font-family: "Montserrat", sans-serif;
@@ -139,44 +150,6 @@ html, body {
     text-align: left;
 }
 
-.experience1 {
-    display: block;
-    background-color: #eee;
-    width: 25%;
-    margin-left: 20%;
-    margin-top:150px;
-    border-radius: 20px;
-    height: 350px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
-}
-.experience1:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-}
-
-.experience2 {
-    display: block;
-    background-color: #eee;
-    width: 25%;
-    margin-top: 150px;
-    margin-right: 20%;
-    border-radius: 20px;
-    height: 350px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
-}
-.experience2:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-}
-
-.experiencetitle {
-    font-family: "Montserrat", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 600;
-    font-style: SemiBold;
-    padding: 10px;
-    text-align: center;
-}
 
 .background {
     width: 100%;
@@ -194,16 +167,6 @@ html, body {
   margin-top: 20px;
   padding-left: 150px;
   width: 60%;
-}
-.experienceshowcase {
-  font-family: "Montserrat", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: Light;
-  text-align: center;
-  margin-top: 20px;
-  padding-left: 5%;
-  width: 90%;
 }
 
 .navbutton a:hover:not(.active) {
@@ -323,4 +286,406 @@ form {
 .icon:hover {
   transform: scale(1.1);
   background-color: #028a5e;
+}
+
+.education-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 40px 100px 0 100px;
+}
+
+.education-card {
+  width: 30%;
+  margin: 20px 0;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: left;
+  padding: 20px;
+  font-family: "Montserrat", sans-serif;
+  transition: transform 0.3s ease;
+}
+
+.education-card:hover {
+  transform: translateY(-5px);
+}
+
+.education-title {
+  font-weight: 600;
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.education-details {
+  font-weight: 400;
+  font-size: 14px;
+  color: #666;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.portfolio-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 40px 100px;
+  gap: 40px;
+}
+
+.project-card {
+  width: 28%;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+  padding: 20px;
+  text-align: left;
+  font-family: "Montserrat", sans-serif;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.project-img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.project-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 10px 0;
+  color: #333;
+}
+
+.project-description {
+  font-size: 14px;
+  color: #666;
+}
+.courses-container {
+  padding: 40px 100px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.course-list {
+  list-style-type: disc;
+  padding-left: 40px;
+  font-size: 16px;
+  color: #444;
+  columns: 2; 
+  column-gap: 60px;
+}
+
+.course-list li {
+  margin-bottom: 12px;
+}
+.courses-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px 100px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.course-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 15px 20px;
+  min-width: 200px;
+  max-width: 240px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  transition: transform 0.3s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.contact-form-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 60px 20px;
+}
+
+.styled-form {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  max-width: 600px;
+  width: 100%;
+  font-family: "Montserrat", sans-serif;
+}
+
+.styled-form .field {
+  margin-bottom: 20px;
+}
+
+.styled-form .label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  display: block;
+  color: #333;
+}
+
+.styled-form .input,
+.styled-form .textarea {
+  width: 100%;
+  padding: 14px 18px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  font-family: "Montserrat", sans-serif;
+  transition: border-color 0.2s;
+}
+
+.styled-form .input:focus,
+.styled-form .textarea:focus {
+  border-color: #04AA6D;
+  outline: none;
+}
+
+.styled-form .textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.styled-form .formbutton {
+  background-color: #04AA6D;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 14px 30px;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: "Montserrat", sans-serif;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.styled-form .formbutton:hover {
+  background-color: #028a5e;
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px 100px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.skill-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 15px 20px;
+  min-width: 200px;
+  max-width: 240px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  transition: transform 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+.navbutton a.active {
+  background-color: #04AA6D;
+  color: #fff;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animated-heading {
+  animation: fadeInUp 1s ease forwards;
+  opacity: 0;
+}
+
+.card-animate {
+  animation: fadeInUp 0.8s ease forwards;
+  opacity: 0;
+}
+
+.card-delay-1 { animation-delay: 0.2s; }
+.card-delay-2 { animation-delay: 0.4s; }
+.card-delay-3 { animation-delay: 0.6s; }
+
+.nav2 {
+  animation: fadeInDown 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.formbutton:hover {
+  transform: scale(1.05);
+  background-color: #028a5e;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+body {
+  transition: opacity 0.5s ease;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+@media (max-width: 768px) {
+  .nav2 {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+  .justifyleft, .justifyright {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .navbutton, .navbuttonname {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .navbutton a, .navbuttonname a {
+    padding: 10px 0;
+    width: 100%;
+    text-align: left;
+  }
+
+  .homename, .welcome, .showcase, .experienceheader {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 20px;
+  }
+
+  .welcome {
+    font-size: 40px;
+  }
+
+  .showcase {
+    width: 90%;
+  }
+
+  .experience-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 20px;
+  }
+
+ .experience-card { 
+  width: 100%; 
+  margin-top: 0;
+}
+
+  .education-container {
+    flex-direction: column;
+    padding: 0 20px;
+    align-items: center;
+  }
+
+  .education-card {
+    width: 90%;
+    margin: 20px 0;
+  }
+
+  .icon-bar {
+    bottom: 10px;
+    right: 10px;
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .icon img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .portfolio-container {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .project-card {
+    width: 100%;
+  }
+  .experience-container {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .experience-card {
+    width: 100%;
+  }
+  .courses-container {
+    padding: 20px;
+  }
+
+  .course-list {
+    columns: 1;
+    padding-left: 20px;
+  }
+  .courses-container {
+    padding: 20px;
+    gap: 15px;
+  }
+
+  .course-card {
+    width: 100%;
+    max-width: none;
+  }
+  .styled-form {
+    padding: 30px 20px;
+  }
+  .skills-container {
+    padding: 20px;
+    gap: 15px;
+  }
+
+  .skill-card {
+    width: 100%;
+    max-width: none;
+  }
+
 }
