@@ -1,3 +1,19 @@
+/* General Body and Font Styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* --- NAVIGATION BAR --- */
 .nav2 {
   display: flex;
   justify-content: space-between;
@@ -11,38 +27,11 @@
   top: 0;
   z-index: 1000;
 }
-.button {
-  float: left;
-}
-
-.montserrat-montbold {
-  font-family: "Montserrat", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 800;
-  font-style: ExtraBold;
-}
-
-.montserrat-montname {
-  font-family: "Montserrat", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 600;
-  font-style: SemiBold;
-}
-
 
 .justifyleft,
 .justifyright {
   display: flex;
   align-items: center;
-}
-.navbutton {
-    display: block;
-    color: grey;
-    margin-left: 20px;
-    font-family: "Montserrat", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 600;
-    font-style: SemiBold;
 }
 
 .navbuttonname a,
@@ -57,205 +46,168 @@
   border-radius: 6px;
 }
 
-
-
-
-
-html, body {
-  width: 100%;
-  margin: 0;
-  padding: 0;
+.navbutton a:hover,
+.navbutton a.active {
+  background-color: #04AA6D;
+  color: #fff;
 }
 
-.nav1, .nav2 {
-  width: 100%;
-  box-sizing: border-box;
+.navbutton {
+    display: block;
+    margin-left: 20px;
 }
 
-.button a {
-  display: block;
-  color: rgb(0, 0, 0);
-  text-align: center;
-  padding: 18px 13px;
-  text-decoration: none;
-}
-
-.button a:hover:not(.active) {
-  background-color: #a9a9a9;
-}
-.homename {
-  font-family: "Montserrat", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 200;
-  font-style: ExtraLight;
-  text-align: left;
-  margin-top: 20px;
-  padding-left: 150px;
-  padding-top: 220px;
-}
-
-.welcome {
-  font-family: "Montserrat", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 800;
-  font-style: ExtraBold;
-  text-align: left;
-  margin-top: 20px;
-  font-size: 70px;
-  padding-left: 150px;
-}
-.experience-container {
-  display: flex;
+/* --- HAMBURGER MENU --- */
+.hamburger-menu {
+  display: none; /* Hidden by default on desktop */
+  flex-direction: column;
   justify-content: space-around;
-  flex-wrap: wrap;
-  padding: 40px 100px;
-  gap: 40px;
+  width: 30px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 10;
 }
 
-.experience-card {
-  width: 28%;
-  background-color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  transition: transform 0.3s;
-  padding: 20px;
-  text-align: left;
-  font-family: "Montserrat", sans-serif;
+.hamburger-menu .bar {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: #333;
+  border-radius: 3px;
+  transition: all 0.3s ease-in-out;
 }
 
-.experience-card:hover {
-  transform: translateY(-5px);
+/* Hamburger animation to "X" */
+.hamburger-menu.active .bar:nth-child(1) {
+  transform: translateY(8.5px) rotate(45deg);
 }
-
-.experience-title {
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 10px;
-  color: #333;
+.hamburger-menu.active .bar:nth-child(2) {
+  opacity: 0;
 }
-
-.experience-description {
-  font-size: 14px;
-  color: #666;
-}
-.experienceheader {
-    font-family: "Montserrat", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 600;
-    font-style: SemiBold;
-    margin-top: 20px;
-    font-size: 25px;
-    padding-left: 150px;
-    padding-top: 220px;
-    text-align: left;
+.hamburger-menu.active .bar:nth-child(3) {
+  transform: translateY(-8.5px) rotate(-45deg);
 }
 
 
+/* --- HERO SECTION --- */
+.bdy {
+    position: relative;
+}
 .background {
     width: 100%;
     height: auto;
     position: absolute;
     z-index: -1;
 }
-
+.homename {
+  font-weight: 200;
+  text-align: left;
+  margin-top: 20px;
+  padding-left: 150px;
+  padding-top: 220px;
+}
+.welcome {
+  font-weight: 800;
+  text-align: left;
+  margin-top: 20px;
+  font-size: 70px;
+  padding-left: 150px;
+}
 .showcase {
-  font-family: "Montserrat", sans-serif;
-  font-optical-sizing: auto;
   font-weight: 400;
-  font-style: Light;
   text-align: left;
   margin-top: 20px;
   padding-left: 150px;
   width: 60%;
+  line-height: 1.6;
 }
 
-.navbutton a:hover:not(.active) {
-  background-color: #a9a9a9;
+/* --- SHARED CARD & CONTAINER STYLES --- */
+.experienceheader {
+    font-weight: 600;
+    margin-top: 20px;
+    font-size: 25px;
+    padding-left: 150px;
+    padding-top: 220px;
+    text-align: left;
+}
+.experience-container,
+.education-container,
+.portfolio-container,
+.courses-container,
+.skills-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 40px 100px;
+  gap: 30px;
 }
 
-.dropdown {
-  float: left;
-}
-
-.dropdown a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 18px 13px;
-  color: #111;
-  text-decoration: none;
-}
-
-.button a:hover:not(.active) {
-  background-color: #111;
-}
-
-.activebutton {
-  background-color: #04AA6D;
-}
-
-form {
-  background: #f9f9f9;
-  padding: 32px 40px;
+.experience-card,
+.education-card,
+.project-card,
+.course-card,
+.skill-card {
+  background-color: #fff;
   border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-  max-width: 500px;
-  margin: 40px auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  padding: 20px;
+  text-align: left;
 }
 
-.field {
-  margin-bottom: 20px;
+.experience-card:hover,
+.education-card:hover,
+.project-card:hover,
+.course-card:hover,
+.skill-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
 }
 
-.label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: 600;
-  font-family: "Montserrat", sans-serif;
-}
+.experience-card { width: 45%; }
+.education-card { width: 30%; }
+.project-card { width: 28%; }
+.course-card, .skill-card { min-width: 200px; max-width: 240px; text-align: center; }
 
-.input, .textarea {
+/* Project Card Specifics */
+.project-img {
   width: 100%;
-  padding: 12px 16px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-family: "Montserrat", sans-serif;
-  font-size: 16px;
-  box-sizing: border-box;
-  background: #fff;
-  transition: border-color 0.2s;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+.project-title, .experience-title, .education-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #333;
+}
+.project-description, .experience-description, .education-details {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
 }
 
-.input:focus, .textarea:focus {
-  border-color: #04AA6D;
-  outline: none;
-}
 
-.textarea {
-  min-height: 120px;
-  resize: vertical;
+/* --- CONTACT FORM & ICONS --- */
+.contact-form-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 60px 20px;
 }
-
-.button-group {
-  text-align: right;
+.styled-form {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  max-width: 600px;
+  width: 100%;
 }
-
-.formbutton[type="submit"] {
-  background: #04AA6D;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  padding: 12px 32px;
-  font-size: 16px;
-  font-family: "Montserrat", sans-serif;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-.formbutton[type="submit"]:hover {
-  background: #028a5e;
-}
-
+/* ... other form styles ... */
 .icon-bar {
   position: fixed;
   bottom: 20px;
@@ -265,7 +217,6 @@ form {
   gap: 10px;
   z-index: 1000;
 }
-
 .icon {
   display: flex;
   align-items: center;
@@ -277,415 +228,95 @@ form {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: transform 0.2s, background-color 0.2s;
 }
+.icon img { width: 24px; height: 24px; }
+.icon:hover { transform: scale(1.1); background-color: #028a5e; }
 
-.icon img {
-  width: 24px;
-  height: 24px;
-}
 
-.icon:hover {
-  transform: scale(1.1);
-  background-color: #028a5e;
-}
-
-.education-container {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  padding: 40px 100px 0 100px;
-}
-
-.education-card {
-  width: 30%;
-  margin: 20px 0;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  text-align: left;
-  padding: 20px;
-  font-family: "Montserrat", sans-serif;
-  transition: transform 0.3s ease;
-}
-
-.education-card:hover {
-  transform: translateY(-5px);
-}
-
-.education-title {
-  font-weight: 600;
-  font-size: 18px;
-  margin-bottom: 8px;
-  color: #333;
-}
-
-.education-details {
-  font-weight: 400;
-  font-size: 14px;
-  color: #666;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-.portfolio-container {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  padding: 40px 100px;
-  gap: 40px;
-}
-
-.project-card {
-  width: 28%;
-  background-color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  transition: transform 0.3s;
-  padding: 20px;
-  text-align: left;
-  font-family: "Montserrat", sans-serif;
-}
-
-.project-card:hover {
-  transform: translateY(-5px);
-}
-
-.project-img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  margin-bottom: 15px;
-}
-
-.project-title {
-  font-size: 18px;
-  font-weight: 600;
-  margin: 10px 0;
-  color: #333;
-}
-
-.project-description {
-  font-size: 14px;
-  color: #666;
-}
-.courses-container {
-  padding: 40px 100px;
-  font-family: "Montserrat", sans-serif;
-}
-
-.course-list {
-  list-style-type: disc;
-  padding-left: 40px;
-  font-size: 16px;
-  color: #444;
-  columns: 2; 
-  column-gap: 60px;
-}
-
-.course-list li {
-  margin-bottom: 12px;
-}
-.courses-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  padding: 40px 100px;
-  font-family: "Montserrat", sans-serif;
-}
-
-.course-card {
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  padding: 15px 20px;
-  min-width: 200px;
-  max-width: 240px;
-  text-align: center;
-  font-size: 14px;
-  font-weight: 500;
-  color: #333;
-  transition: transform 0.3s ease;
-}
-
-.course-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
-}
-
-.contact-form-wrapper {
-  display: flex;
-  justify-content: center;
-  padding: 60px 20px;
-}
-
-.styled-form {
-  background: #ffffff;
-  padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
-  max-width: 600px;
-  width: 100%;
-  font-family: "Montserrat", sans-serif;
-}
-
-.styled-form .field {
-  margin-bottom: 20px;
-}
-
-.styled-form .label {
-  font-weight: 600;
-  margin-bottom: 8px;
-  display: block;
-  color: #333;
-}
-
-.styled-form .input,
-.styled-form .textarea {
-  width: 100%;
-  padding: 14px 18px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 15px;
-  font-family: "Montserrat", sans-serif;
-  transition: border-color 0.2s;
-}
-
-.styled-form .input:focus,
-.styled-form .textarea:focus {
-  border-color: #04AA6D;
-  outline: none;
-}
-
-.styled-form .textarea {
-  min-height: 120px;
-  resize: vertical;
-}
-
-.styled-form .formbutton {
-  background-color: #04AA6D;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  padding: 14px 30px;
-  font-size: 16px;
-  font-weight: 500;
-  font-family: "Montserrat", sans-serif;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.styled-form .formbutton:hover {
-  background-color: #028a5e;
-}
-
-.skills-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  padding: 40px 100px;
-  font-family: "Montserrat", sans-serif;
-}
-
-.skill-card {
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  padding: 15px 20px;
-  min-width: 200px;
-  max-width: 240px;
-  text-align: center;
-  font-size: 14px;
-  font-weight: 500;
-  color: #333;
-  transition: transform 0.3s ease;
-}
-
-.skill-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-}
-.navbutton a.active {
-  background-color: #04AA6D;
-  color: #fff;
-}
-
+/* --- ANIMATIONS --- */
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
-
-.animated-heading {
+.animated-heading, .card-animate {
   animation: fadeInUp 1s ease forwards;
   opacity: 0;
 }
-
-.card-animate {
-  animation: fadeInUp 0.8s ease forwards;
-  opacity: 0;
-}
-
 .card-delay-1 { animation-delay: 0.2s; }
 .card-delay-2 { animation-delay: 0.4s; }
 .card-delay-3 { animation-delay: 0.6s; }
-
-.nav2 {
-  animation: fadeInDown 0.8s ease-out forwards;
-  opacity: 0;
-}
-
-.formbutton:hover {
-  transform: scale(1.05);
-  background-color: #028a5e;
-  transition: transform 0.3s ease, background-color 0.3s ease;
-}
-
-body {
-  transition: opacity 0.5s ease;
-}
-
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+/* ... other animation styles ... */
 
 
-
+/* --- RESPONSIVE STYLES (MOBILE) --- */
 @media (max-width: 768px) {
-  .nav2 {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px;
+  /* Show hamburger and hide desktop links */
+  .hamburger-menu {
+    display: flex;
   }
-
-  .justifyleft, .justifyright {
+  .justifyright {
+    display: none; /* Hide the nav links by default */
+    position: absolute;
+    top: 65px; /* Position below the nav bar */
+    left: 0;
+    right: 0;
     flex-direction: column;
-    align-items: flex-start;
     width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-top: 1px solid #eee;
   }
 
-  .navbutton, .navbuttonname {
+  /* When menu is active, show the links */
+  .justifyright.active {
+    display: flex;
+  }
+  
+  .navbutton {
     margin-left: 0;
     width: 100%;
   }
 
-  .navbutton a, .navbuttonname a {
-    padding: 10px 0;
+  .navbutton a {
+    padding: 15px 20px;
     width: 100%;
     text-align: left;
+    border-radius: 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .navbutton:last-child a {
+    border-bottom: none;
   }
 
+  /* Adjust padding and font sizes for mobile */
   .homename, .welcome, .showcase, .experienceheader {
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
     padding-top: 20px;
   }
+  .welcome { font-size: 40px; }
+  .showcase { width: auto; }
+  .experienceheader { padding-top: 80px; }
 
-  .welcome {
-    font-size: 40px;
-  }
-
-  .showcase {
-    width: 90%;
-  }
-
-  .experience-container {
-    flex-direction: column;
-    align-items: center;
-    padding: 0 20px;
-  }
-
- .experience-card { 
-  width: 100%; 
-  margin-top: 0;
-}
-
-  .education-container {
-    flex-direction: column;
-    padding: 0 20px;
-    align-items: center;
-  }
-
-  .education-card {
-    width: 90%;
-    margin: 20px 0;
-  }
-
-  .icon-bar {
-    bottom: 10px;
-    right: 10px;
-    flex-direction: row;
-    gap: 10px;
-  }
-
-  .icon {
-    width: 40px;
-    height: 40px;
-  }
-
-  .icon img {
-    width: 20px;
-    height: 20px;
-  }
-
-  .portfolio-container {
-    flex-direction: column;
-    padding: 20px;
-  }
-
-  .project-card {
-    width: 100%;
-  }
-  .experience-container {
-    flex-direction: column;
-    padding: 20px;
-  }
-
-  .experience-card {
-    width: 100%;
-  }
-  .courses-container {
-    padding: 20px;
-  }
-
-  .course-list {
-    columns: 1;
-    padding-left: 20px;
-  }
-  .courses-container {
-    padding: 20px;
-    gap: 15px;
-  }
-
-  .course-card {
-    width: 100%;
-    max-width: none;
-  }
-  .styled-form {
-    padding: 30px 20px;
-  }
+  /* Make all cards full-width on mobile */
+  .experience-container,
+  .education-container,
+  .portfolio-container,
+  .courses-container,
   .skills-container {
+    flex-direction: column;
     padding: 20px;
-    gap: 15px;
+    gap: 20px;
   }
 
+  .experience-card,
+  .education-card,
+  .project-card,
+  .course-card,
   .skill-card {
     width: 100%;
-    max-width: none;
   }
-
+  
+  .icon-bar {
+    flex-direction: row;
+  }
 }
