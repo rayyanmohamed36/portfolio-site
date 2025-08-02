@@ -1,4 +1,4 @@
-/* General Body and Font Styles */
+
 *,
 *::before,
 *::after {
@@ -13,7 +13,6 @@ html, body {
   scroll-behavior: smooth;
 }
 
-/* --- NAVIGATION BAR --- */
 .nav2 {
   display: flex;
   justify-content: space-between;
@@ -57,9 +56,9 @@ html, body {
     margin-left: 20px;
 }
 
-/* --- HAMBURGER MENU --- */
+
 .hamburger-menu {
-  display: none; /* Hidden by default on desktop */
+  display: none; 
   flex-direction: column;
   justify-content: space-around;
   width: 30px;
@@ -80,7 +79,6 @@ html, body {
   transition: all 0.3s ease-in-out;
 }
 
-/* Hamburger animation to "X" */
 .hamburger-menu.active .bar:nth-child(1) {
   transform: translateY(8.5px) rotate(45deg);
 }
@@ -92,7 +90,6 @@ html, body {
 }
 
 
-/* --- HERO SECTION --- */
 .bdy {
     position: relative;
 }
@@ -125,7 +122,6 @@ html, body {
   line-height: 1.6;
 }
 
-/* --- SHARED CARD & CONTAINER STYLES --- */
 .experienceheader {
     font-weight: 600;
     margin-top: 20px;
@@ -173,7 +169,6 @@ html, body {
 .project-card { width: 28%; }
 .course-card, .skill-card { min-width: 200px; max-width: 240px; text-align: center; }
 
-/* Project Card Specifics */
 .project-img {
   width: 100%;
   height: auto;
@@ -193,12 +188,12 @@ html, body {
 }
 
 
-/* --- CONTACT FORM & ICONS --- */
 .contact-form-wrapper {
   display: flex;
   justify-content: center;
   padding: 60px 20px;
 }
+
 .styled-form {
   background: #ffffff;
   padding: 40px;
@@ -206,8 +201,59 @@ html, body {
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
   max-width: 600px;
   width: 100%;
+  font-family: "Montserrat", sans-serif;
 }
-/* ... other form styles ... */
+
+.styled-form .field {
+  margin-bottom: 20px;
+}
+
+.styled-form .label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  display: block;
+  color: #333;
+}
+
+.styled-form .input,
+.styled-form .textarea {
+  width: 100%;
+  padding: 14px 18px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  font-family: "Montserrat", sans-serif;
+  transition: border-color 0.2s;
+}
+
+.styled-form .input:focus,
+.styled-form .textarea:focus {
+  border-color: #04AA6D;
+  outline: none;
+}
+
+.styled-form .textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.styled-form .formbutton {
+  background-color: #04AA6D;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 14px 30px;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: "Montserrat", sans-serif;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.styled-form .formbutton:hover {
+  background-color: #028a5e;
+}
+
 .icon-bar {
   position: fixed;
   bottom: 20px;
@@ -231,8 +277,12 @@ html, body {
 .icon img { width: 24px; height: 24px; }
 .icon:hover { transform: scale(1.1); background-color: #028a5e; }
 
+.formbutton:hover {
+  transform: scale(1.05);
+  background-color: #028a5e;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
 
-/* --- ANIMATIONS --- */
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
@@ -244,19 +294,17 @@ html, body {
 .card-delay-1 { animation-delay: 0.2s; }
 .card-delay-2 { animation-delay: 0.4s; }
 .card-delay-3 { animation-delay: 0.6s; }
-/* ... other animation styles ... */
 
 
-/* --- RESPONSIVE STYLES (MOBILE) --- */
+
 @media (max-width: 768px) {
-  /* Show hamburger and hide desktop links */
   .hamburger-menu {
     display: flex;
   }
   .justifyright {
-    display: none; /* Hide the nav links by default */
+    display: none; 
     position: absolute;
-    top: 65px; /* Position below the nav bar */
+    top: 65px; 
     left: 0;
     right: 0;
     flex-direction: column;
@@ -266,7 +314,6 @@ html, body {
     border-top: 1px solid #eee;
   }
 
-  /* When menu is active, show the links */
   .justifyright.active {
     display: flex;
   }
@@ -287,7 +334,6 @@ html, body {
     border-bottom: none;
   }
 
-  /* Adjust padding and font sizes for mobile */
   .homename, .welcome, .showcase, .experienceheader {
     padding-left: 20px;
     padding-right: 20px;
@@ -297,7 +343,6 @@ html, body {
   .showcase { width: auto; }
   .experienceheader { padding-top: 80px; }
 
-  /* Make all cards full-width on mobile */
   .experience-container,
   .education-container,
   .portfolio-container,
