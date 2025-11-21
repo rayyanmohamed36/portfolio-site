@@ -564,7 +564,15 @@ body.theme-light .toggle-thumb {
 @media (max-width: 960px) {
   .work-content {
     grid-template-columns: 1fr;
+    gap: 3rem;
+    height: auto;
   }
+  
+  .work-list {
+    height: auto;
+    overflow-y: visible;
+  }
+  
   .work-info {
     position: relative;
   }
@@ -582,11 +590,21 @@ body.theme-light .toggle-thumb {
     width: 100px;
     height: 1px;
   }
+  
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .about-items {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 640px) {
   .work-shell {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
   .work-rail {
     order: 2;
@@ -597,6 +615,11 @@ body.theme-light .toggle-thumb {
   .work-main-header {
     flex-direction: column;
     align-items: flex-start;
+    gap: 1.5rem;
+  }
+  
+  .work-card-name {
+    font-size: clamp(1.5rem, 8vw, 2.5rem);
   }
 }
 
@@ -618,9 +641,11 @@ body.theme-light .toggle-thumb {
     justify-content: space-between;
     align-items: center;
     order: 2;
+    margin-top: 2rem;
   }
   .rail-social {
     flex-direction: row;
+    gap: 1.5rem;
   }
   .rail-line {
     width: 100px;
@@ -634,6 +659,15 @@ body.theme-light .toggle-thumb {
   .hero {
     min-height: unset;
   }
+  
+  .hero-content {
+    margin-top: 2rem;
+  }
+  
+  body {
+    height: auto;
+    overflow: auto;
+  }
 }
 
 @media (max-width: 560px) {
@@ -646,9 +680,31 @@ body.theme-light .toggle-thumb {
     gap: 1.5rem;
   }
   .hero-link {
-    letter-spacing: 0.15em;
+    font-size: clamp(2rem, 10vw, 3rem);
+    letter-spacing: -0.01em;
+  }
+  .hero-link::after {
+    margin-top: 0.5rem;
   }
   .bio {
     letter-spacing: 0.12em;
+  }
+  .bio-text {
+    font-size: 0.95rem;
+  }
+  
+  .masthead {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .divider {
+    display: none;
+  }
+  
+  .form-input,
+  .form-textarea {
+    font-size: 0.95rem;
+    padding: 0.9rem 1rem;
   }
 }
