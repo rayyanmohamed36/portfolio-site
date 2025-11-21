@@ -14,6 +14,11 @@ html, body {
   min-height: 100vh;
 }
 
+body:not(.work-page) {
+  height: 100vh;
+  overflow: hidden;
+}
+
 body {
   display: flex;
   justify-content: center;
@@ -603,8 +608,11 @@ body.theme-light .toggle-thumb {
 @media (max-width: 640px) {
   .work-page {
     height: auto;
+    min-height: 100vh;
     overflow: visible;
     padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
   }
   
   .work-shell {
@@ -613,16 +621,21 @@ body.theme-light .toggle-thumb {
     height: auto;
     overflow: visible;
     max-width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
   }
   .work-rail {
     order: 2;
     border-right: none;
     border-top: 1px solid var(--line);
     padding-top: 1.5rem;
+    margin-top: auto;
   }
   .work-main {
     padding: 0;
     overflow: visible;
+    flex: 1;
   }
   .work-main-header {
     flex-direction: column;
@@ -636,6 +649,7 @@ body.theme-light .toggle-thumb {
     gap: 2rem;
     height: auto;
     overflow: visible;
+    margin-bottom: 4rem;
   }
   
   .work-info {
@@ -647,6 +661,7 @@ body.theme-light .toggle-thumb {
     overflow-x: hidden;
     height: auto;
     padding-right: 0;
+    padding-bottom: 3rem;
   }
   
   .work-card {
@@ -660,6 +675,10 @@ body.theme-light .toggle-thumb {
   .work-masthead {
     flex-wrap: wrap;
   }
+  
+  .work-rail {
+    margin-top: 3rem;
+  }
 }
 
 @media (max-width: 1100px) {
@@ -672,6 +691,11 @@ body.theme-light .toggle-thumb {
 }
 
 @media (max-width: 800px) {
+  body:not(.work-page) {
+    height: auto;
+    overflow: auto;
+  }
+  
   .page-shell {
     grid-template-columns: 1fr;
   }

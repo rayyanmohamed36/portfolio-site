@@ -87,7 +87,7 @@
 
     const storedTheme = localStorage.getItem('portfolio-theme');
     const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-    const initialTheme = storedTheme || (prefersLight ? 'theme-light' : 'theme-dark');
+    const initialTheme = storedTheme || 'theme-light';
     setTheme(initialTheme);
 
     modeToggle?.addEventListener('click', () => {
