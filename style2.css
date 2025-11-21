@@ -603,7 +603,8 @@ body.theme-light .toggle-thumb {
 @media (max-width: 640px) {
   .work-page {
     height: auto;
-    overflow: auto;
+    overflow: visible;
+    padding: 1.5rem;
   }
   
   .work-shell {
@@ -611,32 +612,53 @@ body.theme-light .toggle-thumb {
     gap: 1.5rem;
     height: auto;
     overflow: visible;
+    max-width: 100%;
   }
   .work-rail {
     order: 2;
+    border-right: none;
+    border-top: 1px solid var(--line);
+    padding-top: 1.5rem;
   }
   .work-main {
-    padding: clamp(1.5rem, 8vw, 3rem);
+    padding: 0;
+    overflow: visible;
   }
   .work-main-header {
     flex-direction: column;
     align-items: flex-start;
     gap: 1.5rem;
+    margin-bottom: 2rem;
   }
   
   .work-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
     height: auto;
     overflow: visible;
   }
   
+  .work-info {
+    position: static;
+  }
+  
   .work-list {
     overflow-y: visible;
+    overflow-x: hidden;
     height: auto;
     padding-right: 0;
   }
   
+  .work-card {
+    padding-bottom: 1.5rem;
+  }
+  
   .work-card-name {
     font-size: clamp(1.5rem, 8vw, 2.5rem);
+  }
+  
+  .work-masthead {
+    flex-wrap: wrap;
   }
 }
 
