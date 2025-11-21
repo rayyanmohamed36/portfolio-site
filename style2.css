@@ -601,9 +601,16 @@ body.theme-light .toggle-thumb {
 }
 
 @media (max-width: 640px) {
+  .work-page {
+    height: auto;
+    overflow: auto;
+  }
+  
   .work-shell {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+    height: auto;
+    overflow: visible;
   }
   .work-rail {
     order: 2;
