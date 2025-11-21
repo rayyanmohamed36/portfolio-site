@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rayyan Mohamed — Work</title>
+  <style>
+    @font-face {
+      font-family: 'Kugile';
+      src: url('Kugile_Demo.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+  </style>
+  <link rel="stylesheet" href="style2.css">
+</head>
+<body class="work-page theme-light">
+  <div class="work-shell">
+    <aside class="work-rail" aria-label="Site rail">
+      <a href="index2.html" class="work-rail-label">Home</a>
+      <p class="work-rail-year">© 2025</p>
+    </aside>
+
+    <main class="work-main">
+      <div class="work-main-header">
+        <div class="work-masthead">
+          <p class="eyebrow">Portfolio / Work</p>
+          <span class="divider" aria-hidden="true"></span>
+          <p class="location">Worldwide — Remote</p>
+        </div>
+        <button class="mode-toggle" type="button" aria-pressed="false" aria-label="Toggle color mode">
+          <span class="toggle-track"><span class="toggle-thumb"></span></span>
+          <span class="toggle-text">Dark Mode</span>
+        </button>
+      </div>
+
+      <section class="work-content">
+        <div class="work-info">
+          <p class="work-info-eyebrow">Work</p>
+          <h1 class="work-info-title">Showcase of Selected Engagements</h1>
+          <p class="work-info-body">
+            A collection of projects spanning assistive technology, web development, AI education platforms, and data analytics.
+            Each project reflects a commitment to innovation, accessibility, and creating meaningful digital solutions
+            that address real-world challenges and opportunities.
+          </p>
+        </div>
+
+        <div class="work-list" aria-label="Featured work">
+          <article class="work-card">
+            <p class="work-card-type">— Assistive Technology</p>
+            <a href="https://github.com/rayyanmohamed36/Smart-Stick" target="_blank" rel="noopener noreferrer" class="work-card-name">Smart Stick</a>
+          </article>
+          <article class="work-card">
+            <p class="work-card-type">— Website Studio</p>
+            <a href="https://launchyoursite.qa" target="_blank" rel="noopener noreferrer" class="work-card-name">LaunchYourSite</a>
+          </article>
+          <article class="work-card">
+            <p class="work-card-type">— AI Education Platform</p>
+            <a href="https://raisegrade.org" target="_blank" rel="noopener noreferrer" class="work-card-name">Raisegrade</a>
+          </article>
+          <article class="work-card">
+            <p class="work-card-type">— Student Journal</p>
+            <a href="https://thestudentopinion.org" target="_blank" rel="noopener noreferrer" class="work-card-name">TheStudentOpinion</a>
+          </article>
+          <article class="work-card">
+            <p class="work-card-type">— AI Analytics</p>
+            <a href="https://github.com/rayyanmohamed36/Stock-Sentiment-Analysis" target="_blank" rel="noopener noreferrer" class="work-card-name">AI Stock Analysis</a>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const body = document.body;
+    const modeToggle = document.querySelector('.mode-toggle');
+    const textEl = modeToggle?.querySelector('.toggle-text');
+
+    const setTheme = (theme) => {
+      body.classList.remove('theme-dark', 'theme-light');
+      body.classList.add(theme);
+      modeToggle?.setAttribute('aria-pressed', theme === 'theme-light');
+      if (textEl) textEl.textContent = theme === 'theme-light' ? 'Dark Mode' : 'Light Mode';
+      localStorage.setItem('portfolio-theme', theme);
+    };
+
+    const storedTheme = localStorage.getItem('portfolio-theme');
+    const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+    const initialTheme = storedTheme || (prefersLight ? 'theme-light' : 'theme-dark');
+    setTheme(initialTheme);
+
+    modeToggle?.addEventListener('click', () => {
+      const isLight = body.classList.contains('theme-light');
+      setTheme(isLight ? 'theme-dark' : 'theme-light');
+    });
+  });
+  </script>
+</body>
+</html>

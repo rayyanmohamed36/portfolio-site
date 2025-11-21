@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rayyan Mohamed — About</title>
+  <style>
+    @font-face {
+      font-family: 'Kugile';
+      src: url('Kugile_Demo.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+  </style>
+  <link rel="stylesheet" href="style2.css">
+</head>
+<body class="work-page theme-light">
+  <div class="work-shell">
+    <aside class="work-rail" aria-label="Site rail">
+      <a href="index2.html" class="work-rail-label">Home</a>
+      <p class="work-rail-year">© 2025</p>
+    </aside>
+
+    <main class="work-main">
+      <div class="work-main-header">
+        <div class="work-masthead">
+          <p class="eyebrow">Portfolio / About</p>
+          <span class="divider" aria-hidden="true"></span>
+          <p class="location">Doha — Qatar</p>
+        </div>
+        <button class="mode-toggle" type="button" aria-pressed="false" aria-label="Toggle color mode">
+          <span class="toggle-track"><span class="toggle-thumb"></span></span>
+          <span class="toggle-text">Dark Mode</span>
+        </button>
+      </div>
+
+      <section class="work-content">
+        <div class="work-info">
+          <p class="work-info-eyebrow">About</p>
+          <h1 class="work-info-title">Skills & Learning</h1>
+          <p class="work-info-body">
+            A curated collection of technical competencies and professional development courses 
+            that shape my approach to design, development, and digital innovation.
+          </p>
+        </div>
+
+        <div class="work-list" aria-label="Skills and courses">
+          <!-- Skills Section -->
+          <div class="about-section">
+            <h2 class="about-section-title">Skills</h2>
+            <div class="about-items">
+              <div class="about-item">HTML & CSS</div>
+              <div class="about-item">JavaScript</div>
+              <div class="about-item">Responsive Web Design</div>
+              <div class="about-item">Git & Version Control</div>
+              <div class="about-item">Figma & UI Design</div>
+              <div class="about-item">Microsoft Excel</div>
+              <div class="about-item">Cloud Concepts (Azure)</div>
+              <div class="about-item">Prompt Engineering</div>
+              <div class="about-item">Assistive Tech Design</div>
+              <div class="about-item">Team Collaboration</div>
+            </div>
+          </div>
+
+          <!-- Courses Section -->
+          <div class="about-section">
+            <h2 class="about-section-title">Courses</h2>
+            <div class="about-items">
+              <div class="about-item">Get started with Figma</div>
+              <div class="about-item">Azure Fundamentals: Describe Azure management and governance</div>
+              <div class="about-item">Azure Fundamentals: Describe Azure architecture and services</div>
+              <div class="about-item">Getting started with Microsoft Excel</div>
+              <div class="about-item">Using Basic Formulas and Functions in Microsoft Excel</div>
+              <div class="about-item">MD-102 Explore endpoint management</div>
+              <div class="about-item">Microsoft Azure Fundamentals: Describe cloud concepts</div>
+              <div class="about-item">Prompt Engineering & AI Automation</div>
+              <div class="about-item">Investment Risk Management</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const body = document.body;
+    const modeToggle = document.querySelector('.mode-toggle');
+    const textEl = modeToggle?.querySelector('.toggle-text');
+
+    const setTheme = (theme) => {
+      body.classList.remove('theme-dark', 'theme-light');
+      body.classList.add(theme);
+      modeToggle?.setAttribute('aria-pressed', theme === 'theme-light');
+      if (textEl) textEl.textContent = theme === 'theme-light' ? 'Dark Mode' : 'Light Mode';
+      localStorage.setItem('portfolio-theme', theme);
+    };
+
+    const storedTheme = localStorage.getItem('portfolio-theme');
+    const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+    const initialTheme = storedTheme || (prefersLight ? 'theme-light' : 'theme-dark');
+    setTheme(initialTheme);
+
+    modeToggle?.addEventListener('click', () => {
+      const isLight = body.classList.contains('theme-light');
+      setTheme(isLight ? 'theme-dark' : 'theme-light');
+    });
+  });
+  </script>
+</body>
+</html>

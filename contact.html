@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rayyan Mohamed — Contact</title>
+  <style>
+    @font-face {
+      font-family: 'Kugile';
+      src: url('Kugile_Demo.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+  </style>
+  <link rel="stylesheet" href="style2.css">
+</head>
+<body class="work-page theme-light">
+  <div class="work-shell">
+    <aside class="work-rail" aria-label="Site rail">
+      <a href="index2.html" class="work-rail-label">Home</a>
+      <p class="work-rail-year">© 2025</p>
+    </aside>
+
+    <main class="work-main">
+      <div class="work-main-header">
+        <div class="work-masthead">
+          <p class="eyebrow">Portfolio / Contact</p>
+          <span class="divider" aria-hidden="true"></span>
+          <p class="location">Doha — Qatar</p>
+        </div>
+        <button class="mode-toggle" type="button" aria-pressed="false" aria-label="Toggle color mode">
+          <span class="toggle-track"><span class="toggle-thumb"></span></span>
+          <span class="toggle-text">Dark Mode</span>
+        </button>
+      </div>
+
+      <section class="work-content">
+        <div class="work-info">
+          <p class="work-info-eyebrow">Contact</p>
+          <h1 class="work-info-title">Get In Touch</h1>
+          <p class="work-info-body">
+            Open to collaborations, commissions, and creative partnerships. 
+            Whether you're looking for web development, design consultation, or have a project in mind, 
+            let's start a conversation.
+          </p>
+        </div>
+
+        <div class="work-list" aria-label="Contact form">
+          <form class="contact-form" action="https://formspree.io/f/YOUR_UNIQUE_ID" method="POST">
+            <div class="form-field">
+              <label class="form-label" for="name">Name</label>
+              <input class="form-input" type="text" id="name" name="name" placeholder="Your full name" required />
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="email">Email</label>
+              <input class="form-input" type="email" id="email" name="email" placeholder="you@example.com" required />
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="message">Message</label>
+              <textarea class="form-textarea" id="message" name="message" placeholder="Tell me about your project or inquiry" rows="6" required></textarea>
+            </div>
+            <button class="form-submit" type="submit">Send Message</button>
+          </form>
+
+          <!-- Social Links -->
+          <div class="contact-social">
+            <a href="https://www.linkedin.com/in/rayyan-mohamed-254050158" target="_blank" rel="noopener noreferrer" class="contact-social-link">
+              <span class="contact-social-label">LinkedIn</span>
+              <span class="contact-social-arrow">→</span>
+            </a>
+            <a href="https://github.com/rayyanmohamed36" target="_blank" rel="noopener noreferrer" class="contact-social-link">
+              <span class="contact-social-label">GitHub</span>
+              <span class="contact-social-arrow">→</span>
+            </a>
+            <a href="mailto:rayyanmohamed36@gmail.com" class="contact-social-link">
+              <span class="contact-social-label">Email</span>
+              <span class="contact-social-arrow">→</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const body = document.body;
+    const modeToggle = document.querySelector('.mode-toggle');
+    const textEl = modeToggle?.querySelector('.toggle-text');
+
+    const setTheme = (theme) => {
+      body.classList.remove('theme-dark', 'theme-light');
+      body.classList.add(theme);
+      modeToggle?.setAttribute('aria-pressed', theme === 'theme-light');
+      if (textEl) textEl.textContent = theme === 'theme-light' ? 'Dark Mode' : 'Light Mode';
+      localStorage.setItem('portfolio-theme', theme);
+    };
+
+    const storedTheme = localStorage.getItem('portfolio-theme');
+    const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+    const initialTheme = storedTheme || (prefersLight ? 'theme-light' : 'theme-dark');
+    setTheme(initialTheme);
+
+    modeToggle?.addEventListener('click', () => {
+      const isLight = body.classList.contains('theme-light');
+      setTheme(isLight ? 'theme-dark' : 'theme-light');
+    });
+  });
+  </script>
+</body>
+</html>

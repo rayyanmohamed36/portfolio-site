@@ -1,175 +1,97 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="style.css">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <title>Rayyan Mohamed | Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rayyan Mohamed — Portfolio</title>
+  <style>
+    @font-face {
+      font-family: 'Kugile';
+      src: url('Kugile_Demo.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style2.css">
 </head>
-<body>
+<body class="theme-dark">
+  <div class="page-shell">
+    <aside class="side-rail" aria-label="Social links">
+      <div class="rail-social">
+        <a href="https://www.linkedin.com/in/rayyan-mohamed-254050158" target="_blank" rel="noreferrer" class="rail-icon" aria-label="LinkedIn">
+          <span>in</span>
+        </a>
+        <a href="mailto:rayyanmohamed36@gmail.com" class="rail-icon" aria-label="Email">
+          <span>em</span>
+        </a>
+        <a href="https://github.com/rayyanmohamed36" target="_blank" rel="noreferrer" class="rail-icon" aria-label="GitHub">
+          <span>gh</span>
+        </a>
+      </div>
+      <div class="rail-line"></div>
+      <p class="rail-year">© 2025</p>
+    </aside>
 
-<header class="nav2">
-  <div class="justifyleft">
-    <a href="index.html"><img class="user" src="user.svg" alt="user icon" max-width="100%" height="auto"></a>
-    <div class="navbuttonname"><a href="index.html">Rayyan Mohamed</a></div>
+    <main class="hero">
+      <div class="hero-top">
+        <header class="masthead">
+          <p class="eyebrow">Portfolio / 2025</p>
+          <span class="divider" aria-hidden="true"></span>
+          <p class="location">Doha — Qatar</p>
+        </header>
+        <button class="mode-toggle" type="button" aria-pressed="false" aria-label="Toggle color mode">
+          <span class="toggle-track"><span class="toggle-thumb"></span></span>
+          <span class="toggle-text">Light Mode</span>
+        </button>
+      </div>
+
+      <div class="hero-content">
+        <section class="bio" id="about">
+          <p class="bio-name">RAYYAN MOHAMED</p>
+          <p class="bio-text">
+            Web developer and aspiring computer scientist building innovative solutions from assistive technology to AI-powered platforms.
+            Experienced in full-stack development, machine learning applications, and creating accessible digital experiences.
+            Currently in high school while developing projects that merge technology with social impact.
+          </p>
+        </section>
+
+        <nav class="hero-nav" aria-label="Primary">
+          <a href="work.html" class="hero-link">Work</a>
+          <a href="about.html" class="hero-link">About</a>
+          <a href="#shop" class="hero-link">Shop</a>
+          <a href="contact.html" class="hero-link">Contact</a>
+        </nav>
+      </div>
+    </main>
   </div>
-  
-  <button class="hamburger-menu" id="hamburger-menu" aria-label="Toggle menu" aria-expanded="false">
-    <span class="bar"></span>
-    <span class="bar"></span>
-    <span class="bar"></span>
-  </button>
 
-  <div class="justifyright" id="nav-links">
-    <div class="navbutton"><a href="#aboutme">About Me</a></div>
-    <div class="navbutton"><a href="#portfolio">Portfolio</a></div>
-    <div class="navbutton"><a href="#contact">Contact</a></div>
-  </div>
-</header>
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const body = document.body;
+    const modeToggle = document.querySelector('.mode-toggle');
+    const textEl = modeToggle?.querySelector('.toggle-text');
 
-<div>
-	<div class="bdy">
-		<img class="background" src="homeimg.jpg" alt="background image">"
-		<p class="homename">Introduction </p>
-		<h1 class="welcome">Welcome to My Portfolio</h1>
-		<p class="showcase" id="aboutme">Hi! I'm Rayyan — a passionate web developer dedicated to crafting creative, functional, and impactful digital experiences. Whether I’m designing or coding, I focus on combining innovation with precision to bring ideas to life. This portfolio showcases some of my favorite projects, personal experiments, and collaborative work. Take a look around, and feel free to reach out if you'd like to work together or just have a chat.</p>
-	</div>
-  <p class="experienceheader animated-heading">Experience</p>
-  <div class="experience-container">
-    <div class="experience-card card-animate card-delay-1">
-      <h3 class="experience-title">Tholvi Oy Internship</h3>
-      <p class="experience-description">
-        At Tholvi Oy, I contributed to the development of assistive technology aimed at enhancing the shopping experience for individuals with visual impairments. I worked on accessible navigation and interaction solutions within shopping centers, using sensor technologies and inclusive development practices.
-      </p>
-    </div>
-  <div class="experience-card card-animate card-delay-2">
-    <h3 class="experience-title">Bridgeon Internship</h3>
-    <p class="experience-description">
-      At Bridgeon, I gained hands-on experience in front-end web development, focusing on HTML, CSS, and JavaScript. I helped build responsive UIs, applied coding best practices, and collaborated within a professional development team.
-    </p>
-  </div>
-</div>
+    const setTheme = (theme) => {
+      body.classList.remove('theme-dark', 'theme-light');
+      body.classList.add(theme);
+      modeToggle?.setAttribute('aria-pressed', theme === 'theme-light');
+      if (textEl) textEl.textContent = theme === 'theme-light' ? 'Dark Mode' : 'Light Mode';
+      localStorage.setItem('portfolio-theme', theme);
+    };
 
-</div>
-<div>
-  	<p class="experienceheader animated-heading">Education</p>
-<div class="education-container">
-  <div class="education-card card-animate card-delay-1">
-    <p class="education-title">IGCSEs</p>
-    <p class="education-details">Doha College | 2023-2025</p>
-  </div>
-  <div class="education-card card-animate card-delay-2">
-    <p class="education-title">International A Levels</p>
-    <p class="education-details">Doha College | 2025-2027</p>
-  </div>
-  <div class="education-card card-animate card-delay-3">
-    <p class="education-title">Degree</p>
-    <p class="education-details">University here | year-year</p>
-  </div>
-</div>
+    const storedTheme = localStorage.getItem('portfolio-theme');
+    const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+    const initialTheme = storedTheme || (prefersLight ? 'theme-light' : 'theme-dark');
+    setTheme(initialTheme);
 
-</div>
-
-<p class="experienceheader animated-heading" id="portfolio">Projects</p>
-<div class="portfolio-container">
-  <div class="project-card card-animate card-delay-1">
-    <img src="smartstick.jpg" alt="Screenshot of Smart Stick Project" class="project-img">
-    <h3 class="project-title">Smart Stick</h3>
-    <p class="project-description"></p>
-  </div>
-  <div class="project-card card-animate card-delay-2">
-    <a href="https://launchyoursite.qa" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
-      <img src="launchyoursite.jpg" alt="LaunchYourSite.qa Website" class="project-img">
-      <h3 class="project-title">LaunchYourSite.qa 🔗</h3>
-      <p class="project-description">A professional website studio business that builds custom websites for businesses in Qatar, delivering modern and effective digital solutions.</p>
-    </a>
-  </div>
-  <div class="project-card card-animate card-delay-4">
-    <a href="https://ai.raisegrade.org" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
-      <img src="raisegrade.jpg" alt="AI Raisegrade Website" class="project-img">
-      <h3 class="project-title">AI Raisegrade 🔗</h3>
-      <p class="project-description">An AI-powered educational platform designed to help students improve their grades through intelligent tutoring and personalized learning experiences.</p>
-    </a>
-  </div>
-</div>
-
-<p class="experienceheader animated-heading">Courses</p>
-<div class="courses-container">
-  <div class="course-card card-animate card-delay-1">Get started with Figma</div>
-  <div class="course-card card-animate card-delay-2">Azure Fundamentals: Describe Azure management and governance</div>
-  <div class="course-card card-animate card-delay-3">Azure Fundamentals: Describe Azure architecture and services</div>
-  <div class="course-card card-animate card-delay-4">Getting started with Microsoft Excel</div>
-  <div class="course-card card-animate card-delay-5">Using Basic Formulas and Functions in Microsoft Excel</div>
-  <div class="course-card card-animate card-delay-6">MD-102 Explore endpoint management</div>
-  <div class="course-card card-animate card-delay-7">Microsoft Azure Fundamentals: Describe cloud concepts</div>
-  <div class="course-card card-animate card-delay-8">Prompt Engineering & AI Automation</div>
-  <div class="course-card card-animate card-delay-9">Investment Risk Management</div>
-</div>
-
-<p class="experienceheader animated-heading">Skills</p>
-<div class="skills-container">
-  <div class="skill-card card-animate card-delay-1">HTML & CSS</div>
-  <div class="skill-card card-animate card-delay-2">JavaScript</div>
-  <div class="skill-card card-animate card-delay-3">Responsive Web Design</div>
-  <div class="skill-card card-animate card-delay-4">Git & Version Control</div>
-  <div class="skill-card card-animate card-delay-5">Figma & UI Design</div>
-  <div class="skill-card card-animate card-delay-6">Microsoft Excel</div>
-  <div class="skill-card card-animate card-delay-7">Cloud Concepts (Azure)</div>
-  <div class="skill-card card-animate card-delay-8">Prompt Engineering</div>
-  <div class="skill-card card-animate card-delay-9">Assistive Tech Design</div>
-  <div class="skill-card card-animate card-delay-10">Team Collaboration</div>
-</div>
-
-
-<p class="experienceheader animated-heading" id="contact">Contact Me</p>
-<div class="contact-form-wrapper">
-  <form class="styled-form" action="https://formspree.io/f/YOUR_UNIQUE_ID" method="POST">
-    <div class="field">
-      <label class="label" for="name">Name</label>
-      <input class="input" type="text" id="name" name="name" placeholder="Your full name" required />
-    </div>
-    <div class="field">
-      <label class="label" for="email">Email</label>
-      <input class="input" type="email" id="email" name="email" placeholder="you@example.com" required />
-    </div>
-    <div class="field">
-      <label class="label" for="message">Message</label>
-      <textarea class="textarea" id="message" name="message" placeholder="Enter your message" required></textarea>
-    </div>
-    <div class="button-group">
-      <button class="formbutton" type="submit">Send Message</button>
-    </div>
-  </form>
-</div>
-
-<div class="icon-bar">
-  <a href="https://www.linkedin.com/in/rayyan-mohamed-254050158" target="_blank" class="icon linkedin">
-    <img src="linkedin.svg" alt="LinkedIn">
-  </a>
-  <a href="https://github.com/rayyanmohamed36" target="_blank" class="icon github">
-    <img src="github.svg" alt="GitHub">
-  </a>
-  <a href="mailto:rayyanmohamed36@gmail.com" class="icon email">
-    <img src="email.svg" alt="Email">
-  </a>
-</div>
-
-</div>
-
-<script>
-    const hamburgerMenu = document.getElementById('hamburger-menu');
-    const navLinks = document.getElementById('nav-links');
-
-    hamburgerMenu.addEventListener('click', () => {
-        hamburgerMenu.classList.toggle('active');
-        navLinks.classList.toggle('active');
-        const isExpanded = hamburgerMenu.getAttribute('aria-expanded') === 'true';
-        hamburgerMenu.setAttribute('aria-expanded', !isExpanded);
+    modeToggle?.addEventListener('click', () => {
+      const isLight = body.classList.contains('theme-light');
+      setTheme(isLight ? 'theme-dark' : 'theme-light');
     });
-</script>
-
+  });
+  </script>
 </body>
 </html>
