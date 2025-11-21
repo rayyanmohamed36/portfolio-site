@@ -624,6 +624,17 @@ body.theme-light .toggle-thumb {
     gap: 1.5rem;
   }
   
+  .work-content {
+    height: auto;
+    overflow: visible;
+  }
+  
+  .work-list {
+    overflow-y: visible;
+    height: auto;
+    padding-right: 0;
+  }
+  
   .work-card-name {
     font-size: clamp(1.5rem, 8vw, 2.5rem);
   }
