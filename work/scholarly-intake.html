@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scholarly Intake — Research Platform</title>
+  <style>
+    @font-face {
+      font-family: 'Kugile';
+      src: url('../Kugile_Demo.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+  </style>
+  <link rel="stylesheet" href="../style2.css" />
+</head>
+<body class="work-page detail-page theme-light">
+  <div class="work-shell">
+    <aside class="work-rail" aria-label="Site rail">
+      <a href="../index.html" class="work-rail-label">Home</a>
+      <a href="../work.html" class="work-rail-back" aria-label="Go to work list">Back</a>
+      <p class="work-rail-year">© 2025</p>
+    </aside>
+
+    <main class="work-main detail-main">
+      <header class="detail-header">
+        <div class="detail-masthead">
+          <p class="eyebrow">Case Study</p>
+          <span class="divider" aria-hidden="true"></span>
+          <p class="location">Research Platform</p>
+        </div>
+        <button class="mode-toggle" type="button" aria-pressed="false" aria-label="Toggle color mode">
+          <span class="toggle-track"><span class="toggle-thumb"></span></span>
+          <span class="toggle-text">Dark Mode</span>
+        </button>
+      </header>
+
+      <section class="project-layout">
+        <div class="project-info">
+          <p class="project-eyebrow">Research Platform</p>
+          <h1 class="project-title">Scholarly Intake</h1>
+          <p class="project-summary">
+            A web platform that helps writers and researchers create a web journal by uploading academic papers and
+            automatically upload it to a MongoDB database with extracted text and metadata.
+          </p>
+          <dl class="project-meta">
+            <div class="project-meta-item">
+              <dt>Role</dt>
+              <dd>Full-stack Engineer</dd>
+            </div>
+            <div class="project-meta-item">
+              <dt>Timeline</dt>
+              <dd>8 weeks</dd>
+            </div>
+            <div class="project-meta-item">
+              <dt>Stack</dt>
+              <dd>Python, LangChain, Pinecone, Next.js</dd>
+            </div>
+          </dl>
+          <div class="project-links">
+            <a class="project-link" href="https://github.com/rayyanmohamed36/Scholarly-Intake" target="_blank" rel="noopener noreferrer">View Repository</a>
+          </div>
+        </div>
+
+        <div class="project-narrative">
+          <p>
+            Scholarly Intake was born out of the frustration I faced when trying to keep track of
+            numerous academic papers and extract relevant information efficiently for my online student journal. The platform aims to streamline
+            the research process by allowing editors to upload PDFs of academic papers, which are then processed to
+            extract text and metadata for easy retrieval and analysis.
+          </p>
+          <p>
+            The system was created to manage the articles, essays and papers submitted by student writers for publication for another
+            project I worked on, TheStudentOpinion. The existing workflow required me to manually upload each paper to the website using HTML.
+            This was time-consuming and inefficient, especially as the volume of submissions increased and I had to send papers to editors individually.
+            The platform automates this process, allowing for bulk uploads and automatic extraction of key information.
+          </p>
+          <p>
+            The platform leverages Python for backend processing, using libraries such as PyMuPDF to extract text from PDFs.
+            LangChain is utilized to handle the document processing and chunking, while Pinecone serves as the vector database
+            for storing and retrieving the extracted information. The frontend is built with Next.js, providing a user-friendly interface
+            for uploading documents and managing the research database.
+          </p>
+          <p>
+            Moving forward, I plan to enhance Scholarly Intake by implementing new features such as advanced search capabilities, and implement
+            AI-driven summarization of papers to help researchers quickly grasp the main points of each document. Additionally, I aim to
+            integrate collaboration tools to allow multiple users to work on the same research projects seamlessly. This project is open source and
+            available on GitHub for other researchers and developers to create their own online journals.
+          </p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const body = document.body;
+      const modeToggle = document.querySelector('.mode-toggle');
+      const textEl = modeToggle?.querySelector('.toggle-text');
+
+      const setTheme = (theme) => {
+        body.classList.remove('theme-dark', 'theme-light');
+        body.classList.add(theme);
+        modeToggle?.setAttribute('aria-pressed', theme === 'theme-light');
+        if (textEl) textEl.textContent = theme === 'theme-light' ? 'Dark Mode' : 'Light Mode';
+        localStorage.setItem('portfolio-theme', theme);
+      };
+
+      const storedTheme = localStorage.getItem('portfolio-theme');
+      const initialTheme = storedTheme || 'theme-light';
+        setTheme(initialTheme);
+
+        modeToggle?.addEventListener('click', () => {
+          const isLight = body.classList.contains('theme-light');
+          setTheme(isLight ? 'theme-dark' : 'theme-light');
+        });
+      });
+    </script>
+  </body>
+  </html>
+*** End Patch

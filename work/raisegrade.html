@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Raisegrade — AI Education Platform</title>
+  <style>
+    @font-face {
+      font-family: 'Kugile';
+      src: url('../Kugile_Demo.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+  </style>
+  <link rel="stylesheet" href="../style2.css" />
+</head>
+<body class="work-page detail-page theme-light">
+  <div class="work-shell">
+    <aside class="work-rail" aria-label="Site rail">
+      <a href="../index.html" class="work-rail-label">Home</a>
+      <a href="../work.html" class="work-rail-back" aria-label="Go to work list">Back</a>
+      <p class="work-rail-year">© 2025</p>
+    </aside>
+
+    <main class="work-main detail-main">
+      <header class="detail-header">
+        <div class="detail-masthead">
+          <p class="eyebrow">Case Study</p>
+          <span class="divider" aria-hidden="true"></span>
+          <p class="location">AI Education Platform</p>
+        </div>
+        <button class="mode-toggle" type="button" aria-pressed="false" aria-label="Toggle color mode">
+          <span class="toggle-track"><span class="toggle-thumb"></span></span>
+          <span class="toggle-text">Dark Mode</span>
+        </button>
+      </header>
+
+      <section class="project-layout">
+        <div class="project-info">
+          <p class="project-eyebrow">AI Education Platform</p>
+          <h1 class="project-title">Raise grade</h1>
+          <p class="project-summary">
+            Raisegrade helps international GCSE students revise their subjects with the help of a bilingual AI tutor.
+            I founded the project and developed the AI which was implemented in the leading British school in Doha.
+            The project was started as a non profit organization and aims to be implemented in more schools worldwide.
+          </p>
+          <dl class="project-meta">
+            <div class="project-meta-item">
+              <dt>Role</dt>
+              <dd>Product Engineer</dd>
+            </div>
+            <div class="project-meta-item">
+              <dt>Timeline</dt>
+              <dd>6 weeks</dd>
+            </div>
+            <div class="project-meta-item">
+              <dt>Stack</dt>
+              <dd>Next.js, Supabase, OpenAI, Vercel KV</dd>
+            </div>
+          </dl>
+          <div class="project-links">
+            <a class="project-link" href="https://raisegrade.org" target="_blank" rel="noopener noreferrer">Visit Product</a>
+          </div>
+        </div>
+
+        <div class="project-narrative">
+          <p>
+            Raisegrade is an AI-powered tutoring platform designed to help international GCSE students improve their
+            academic performance through personalized study sessions. The platform was developed in collaboration
+            with educators at the British International School in Doha to address the challenges faced by
+            bilingual students and enhance their learning experience.
+          </p>
+          <p>
+            On the backend I stitched together Next.js, Supabase, and OpenAI APIs with a set of guardrails. Students
+            prompt the AI tutor and an embedding model retrieves relevant curriculum-aligned resources from a database
+            of past papers and revision notes. This context is fed into GPT-5, which generates tailored explanations
+            in either English or Arabic, depending on the student's preference. To ensure accuracy, I implemented
+            verification steps where the AI cross-references multiple sources before providing answers.
+          </p>
+          <p>
+            Currently the project is being piloted at the British International School in Doha, where initial feedback from students
+            and teachers has been overwhelmingly positive. The AI tutor has helped students grasp complex concepts,
+            improve their grades, and build confidence in their studies. Moving forward, I plan to expand Raisegrade's
+            reach by partnering with more schools within Qatar and globally and continuously refining the AI's capabilities based on user feedback.
+          </p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const body = document.body;
+      const modeToggle = document.querySelector('.mode-toggle');
+      const textEl = modeToggle?.querySelector('.toggle-text');
+
+      const setTheme = (theme) => {
+        body.classList.remove('theme-dark', 'theme-light');
+        body.classList.add(theme);
+        modeToggle?.setAttribute('aria-pressed', theme === 'theme-light');
+        if (textEl) textEl.textContent = theme === 'theme-light' ? 'Dark Mode' : 'Light Mode';
+        localStorage.setItem('portfolio-theme', theme);
+      };
+
+      const storedTheme = localStorage.getItem('portfolio-theme');
+      const initialTheme = storedTheme || 'theme-light';
+      setTheme(initialTheme);
+
+      modeToggle?.addEventListener('click', () => {
+        const isLight = body.classList.contains('theme-light');
+        setTheme(isLight ? 'theme-dark' : 'theme-light');
+      });
+    });
+  </script>
+</body>
+</html>

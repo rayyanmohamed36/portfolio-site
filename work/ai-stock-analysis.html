@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Stock Analysis — Sentiment Suite</title>
+  <style>
+    @font-face {
+      font-family: 'Kugile';
+      src: url('../Kugile_Demo.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+  </style>
+  <link rel="stylesheet" href="../style2.css" />
+</head>
+<body class="work-page detail-page theme-light">
+  <div class="work-shell">
+    <aside class="work-rail" aria-label="Site rail">
+      <a href="../index.html" class="work-rail-label">Home</a>
+      <a href="../work.html" class="work-rail-back" aria-label="Go to work list">Back</a>
+      <p class="work-rail-year">© 2025</p>
+    </aside>
+
+    <main class="work-main detail-main">
+      <header class="detail-header">
+        <div class="detail-masthead">
+          <p class="eyebrow">Case Study</p>
+          <span class="divider" aria-hidden="true"></span>
+          <p class="location">AI Analytics</p>
+        </div>
+        <button class="mode-toggle" type="button" aria-pressed="false" aria-label="Toggle color mode">
+          <span class="toggle-track"><span class="toggle-thumb"></span></span>
+          <span class="toggle-text">Dark Mode</span>
+        </button>
+      </header>
+
+      <section class="project-layout">
+        <div class="project-info">
+          <p class="project-eyebrow">AI Analytics</p>
+          <h1 class="project-title">AI Stock Analysis</h1>
+          <p class="project-summary">
+            A sentiment research pipeline that scrapes trusted financial outlets, classifies tone with RoBERTa, and
+            feeds rolling scores into a lightweight portfolio simulator. Traders can slice by ticker, topic, or
+            keyword and export signals straight into their Notion dashboards.
+          </p>
+          <dl class="project-meta">
+            <div class="project-meta-item">
+              <dt>Role</dt>
+              <dd>Developer</dd>
+            </div>
+            <div class="project-meta-item">
+              <dt>Timeline</dt>
+              <dd>Ongoing</dd>
+            </div>
+            <div class="project-meta-item">
+              <dt>Stack</dt>
+              <dd>Python, FastAPI, Hugging Face, Supabase</dd>
+            </div>
+          </dl>
+          <div class="project-links">
+            <a class="project-link" href="https://github.com/rayyanmohamed36/Stock-Sentiment-Analysis" target="_blank" rel="noopener noreferrer">View Repository</a>
+          </div>
+        </div>
+
+        <div class="project-narrative">
+          <p>
+            This study explores how the tone of financial news headlines aligns with movements in the Dow Jones
+            Industrial Average (DIA). Headlines are aggregated per day, cleaned, and scored with the VADER sentiment
+            analyzer so we can observe whether collective optimism or pessimism shows up in the market tape. In
+            parallel, we pull historical DIA prices via <code>yfinance</code>, compute daily returns, and synchronize
+            both datasets to form a single timeline of sentiment versus performance.
+          </p>
+          <p>
+            A Python notebook powers the workflow: pandas handles preprocessing, VADER delivers positive/negative/
+            neutral scores, and matplotlib highlights the relationships through scatterplots and distribution charts.
+            We also support lag analysis—yesterday’s sentiment plotted against today’s return—to inspect whether
+            news leads price action by a session or two. The combined feature set turns messy headlines into
+            structured, analysis-ready signals without leaving the scripting environment.
+          </p>
+          <p>
+            Initial findings show sentiment values clustering around neutral, reminding us to watch for noisy inputs
+            and outliers produced by empty headlines. Correlations remain modest, yet they tighten when we inspect
+            lagged signals, suggesting room for predictive strategies or downstream trading rules. Future work will
+            scale the approach to additional indices, experiment with finance-tuned language models like FinBERT, and
+            expand into weekly or monthly horizons to capture slower-moving macro narratives.
+          </p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const body = document.body;
+      const modeToggle = document.querySelector('.mode-toggle');
+      const textEl = modeToggle?.querySelector('.toggle-text');
+
+      const setTheme = (theme) => {
+        body.classList.remove('theme-dark', 'theme-light');
+        body.classList.add(theme);
+        modeToggle?.setAttribute('aria-pressed', theme === 'theme-light');
+        if (textEl) textEl.textContent = theme === 'theme-light' ? 'Dark Mode' : 'Light Mode';
+        localStorage.setItem('portfolio-theme', theme);
+      };
+
+      const storedTheme = localStorage.getItem('portfolio-theme');
+      const initialTheme = storedTheme || 'theme-light';
+      setTheme(initialTheme);
+
+      modeToggle?.addEventListener('click', () => {
+        const isLight = body.classList.contains('theme-light');
+        setTheme(isLight ? 'theme-dark' : 'theme-light');
+      });
+    });
+  </script>
+</body>
+</html>

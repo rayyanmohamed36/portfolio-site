@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LaunchYourSite — Studio Detail</title>
+  <style>
+    @font-face {
+      font-family: 'Kugile';
+      src: url('../Kugile_Demo.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+  </style>
+  <link rel="stylesheet" href="../style2.css" />
+</head>
+<body class="work-page detail-page theme-light">
+  <div class="work-shell">
+    <aside class="work-rail" aria-label="Site rail">
+      <a href="../index.html" class="work-rail-label">Home</a>
+      <a href="../work.html" class="work-rail-back" aria-label="Go to work list">Back</a>
+      <p class="work-rail-year">© 2025</p>
+    </aside>
+
+    <main class="work-main detail-main">
+      <header class="detail-header">
+        <div class="detail-masthead">
+          <p class="eyebrow">Case Study</p>
+          <span class="divider" aria-hidden="true"></span>
+          <p class="location">Website Studio</p>
+        </div>
+        <button class="mode-toggle" type="button" aria-pressed="false" aria-label="Toggle color mode">
+          <span class="toggle-track"><span class="toggle-thumb"></span></span>
+          <span class="toggle-text">Dark Mode</span>
+        </button>
+      </header>
+
+      <section class="project-layout">
+        <div class="project-info">
+          <p class="project-eyebrow">Website Studio</p>
+          <h1 class="project-title">Launch Your Site</h1>
+          <p class="project-summary">
+            LaunchYourSite is a website studio that ships fully responsive marketing sites for businesses within Qatar,
+            focusing on delivering tailored digital experiences for their customers, enhancing their online presence and engagement.
+          </p>
+          <dl class="project-meta">
+            <div class="project-meta-item">
+              <dt>Role</dt>
+              <dd>Founder & Lead Engineer</dd>
+            </div>
+            <div class="project-meta-item">
+              <dt>Timeline</dt>
+              <dd>Ongoing</dd>
+            </div>
+            <div class="project-meta-item">
+              <dt>Stack</dt>
+              <dd>Next.js, Sanity, Tailwind, Vercel</dd>
+            </div>
+          </dl>
+          <div class="project-links">
+            <a class="project-link" href="https://launchyoursite.qa" target="_blank" rel="noopener noreferrer">Visit Studio</a>
+          </div>
+        </div>
+
+        <div class="project-narrative">
+          <p>
+            LaunchYourSite began is a side project to help local businesses establish a strong online presence through custom websites.
+            Many small businesses in Qatar struggle to find affordable, high-quality web development services that meet their
+            specific needs. I saw an opportunity to create a studio that specializes in delivering tailored digital experiences
+            for these businesses, helping them reach and engage their target audiences effectively.
+          </p>
+          <p>
+            I developed a streamlined process that combines modern web technologies with a focus on user experience and design.
+            Each project begins with a thorough consultation to understand the client's goals, target audience, and brand identity.
+            From there, I create custom designs and implement them using Next.js and Tailwind CSS, ensuring that each site is
+            fully responsive and optimized for performance. A set of sample sites where created for fake businesses to showcase the studio's capabilities.
+          </p>
+          <p>
+            Currently the studio is focusing on expanding its capabilities and reaching more businesses within Qatar. I plan to implement
+            additional services such as SEO optimization, AI chatbots, and analytics integration to provide a comprehensive digital solution for clients.
+            By continuously refining the studio's offerings and staying up-to-date with the latest web development trends
+            , LaunchYourSite aims to become a go-to resource for businesses looking to enhance their online presence.
+          </p>
+          <p>
+            So far, LaunchYourSite has successfully delivered websites for several local businesses, receiving positive feedback
+            for the quality of work and the personalized approach. The studio is committed to helping businesses grow and succeed
+            in the digital landscape by providing them with the tools they need to connect with their customers effectively.
+          </p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const body = document.body;
+      const modeToggle = document.querySelector('.mode-toggle');
+      const textEl = modeToggle?.querySelector('.toggle-text');
+
+      const setTheme = (theme) => {
+        body.classList.remove('theme-dark', 'theme-light');
+        body.classList.add(theme);
+        modeToggle?.setAttribute('aria-pressed', theme === 'theme-light');
+        if (textEl) textEl.textContent = theme === 'theme-light' ? 'Dark Mode' : 'Light Mode';
+        localStorage.setItem('portfolio-theme', theme);
+      };
+
+      const storedTheme = localStorage.getItem('portfolio-theme');
+      const initialTheme = storedTheme || 'theme-light';
+      setTheme(initialTheme);
+
+      modeToggle?.addEventListener('click', () => {
+        const isLight = body.classList.contains('theme-light');
+        setTheme(isLight ? 'theme-dark' : 'theme-light');
+      });
+    });
+  </script>
+</body>
+</html>

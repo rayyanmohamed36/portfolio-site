@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TheStudentOpinion — Student Journal</title>
+  <style>
+    @font-face {
+      font-family: 'Kugile';
+      src: url('../Kugile_Demo.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+  </style>
+  <link rel="stylesheet" href="../style2.css" />
+</head>
+<body class="work-page detail-page theme-light">
+  <div class="work-shell">
+    <aside class="work-rail" aria-label="Site rail">
+      <a href="../index.html" class="work-rail-label">Home</a>
+      <a href="../work.html" class="work-rail-back" aria-label="Go to work list">Back</a>
+      <p class="work-rail-year">© 2025</p>
+    </aside>
+
+    <main class="work-main detail-main">
+      <header class="detail-header">
+        <div class="detail-masthead">
+          <p class="eyebrow">Case Study</p>
+          <span class="divider" aria-hidden="true"></span>
+          <p class="location">Student Journal</p>
+        </div>
+        <button class="mode-toggle" type="button" aria-pressed="false" aria-label="Toggle color mode">
+          <span class="toggle-track"><span class="toggle-thumb"></span></span>
+          <span class="toggle-text">Dark Mode</span>
+        </button>
+      </header>
+
+      <section class="project-layout">
+        <div class="project-info">
+          <p class="project-eyebrow">Student Journal</p>
+          <h1 class="project-title">The Student Opinion</h1>
+          <p class="project-summary">
+            TheStudentOpinion is an online journal run by students for students. I created an efficient publishing
+            workflow using a custom Article manager named Scholarly Intake that cut the editorial board's time-to-publish
+          </p>
+          <dl class="project-meta">
+            <div class="project-meta-item">
+              <dt>Role</dt>
+              <dd>Product & Platform Lead</dd>
+            </div>
+            <div class="project-meta-item">
+              <dt>Timeline</dt>
+              <dd>10 weeks</dd>
+            </div>
+            <div class="project-meta-item">
+              <dt>Stack</dt>
+              <dd>Astro, Contentful, Cloudflare Pages</dd>
+            </div>
+          </dl>
+          <div class="project-links">
+            <a class="project-link" href="https://thestudentopinion.org" target="_blank" rel="noopener noreferrer">Visit Journal</a>
+          </div>
+        </div>
+
+        <div class="project-narrative">
+          <p>
+            TheStudentOpinion started as a project by me with just one other person. We wanted to create a platform where students could share their perspectives on various topics,
+            ranging from academics to social issues. As the platform grew in popularity, we attracted more student writers and contributors,
+            leading to the formation of an editorial board responsible for curating and publishing content.
+          </p>
+          <p>
+            On the front end I built a site which showcases the latest articles, issues, and author profiles.
+            On the backend I developed a custom article management system called Scholarly Intake to streamline the submission and publication process.
+            The system allows writers to upload their articles in bulk, which are then automatically processed to extract
+            text and metadata, making it easier for editors to review and publish content. This automation significantly reduced the time and effort required to manage submissions.
+          </p>
+          <p>
+            After launch, an editorial board was created to manage the growing number of submissions.
+            The board reported a 40% reduction in time-to-publish, allowing them to focus more on content quality and engagement with the student community.
+            TheStudentOpinion has since become a vibrant platform for student voices, fostering a sense of community and encouraging dialogue on important issues.
+          </p>
+          <p>
+            Moving forward, I plan to continue enhancing TheStudentOpinion by introducing new features such as multimedia content support,
+            interactive discussions, and expanded outreach to include more schools and student organizations. The goal is to create a dynamic
+            and inclusive platform that empowers students to share their opinions and experiences with a wider audience.
+          </p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const body = document.body;
+      const modeToggle = document.querySelector('.mode-toggle');
+      const textEl = modeToggle?.querySelector('.toggle-text');
+
+      const setTheme = (theme) => {
+        body.classList.remove('theme-dark', 'theme-light');
+        body.classList.add(theme);
+        modeToggle?.setAttribute('aria-pressed', theme === 'theme-light');
+        if (textEl) textEl.textContent = theme === 'theme-light' ? 'Dark Mode' : 'Light Mode';
+        localStorage.setItem('portfolio-theme', theme);
+      };
+
+      const storedTheme = localStorage.getItem('portfolio-theme');
+      const initialTheme = storedTheme || 'theme-light';
+      setTheme(initialTheme);
+
+      modeToggle?.addEventListener('click', () => {
+        const isLight = body.classList.contains('theme-light');
+        setTheme(isLight ? 'theme-dark' : 'theme-light');
+      });
+    });
+  </script>
+</body>
+</html>

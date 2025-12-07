@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Stick — Assistive Technology</title>
+  <style>
+    @font-face {
+      font-family: 'Kugile';
+      src: url('../Kugile_Demo.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+  </style>
+  <link rel="stylesheet" href="../style2.css" />
+</head>
+<body class="work-page detail-page theme-light">
+  <div class="work-shell">
+    <aside class="work-rail" aria-label="Site rail">
+      <a href="../index.html" class="work-rail-label">Home</a>
+      <a href="../work.html" class="work-rail-back" aria-label="Go to work list">Back</a>
+      <p class="work-rail-year">© 2025</p>
+    </aside>
+
+    <main class="work-main detail-main">
+      <header class="detail-header">
+        <div class="detail-masthead">
+          <p class="eyebrow">Case Study</p>
+          <span class="divider" aria-hidden="true"></span>
+          <p class="location">Assistive Technology</p>
+        </div>
+        <button class="mode-toggle" type="button" aria-pressed="false" aria-label="Toggle color mode">
+          <span class="toggle-track"><span class="toggle-thumb"></span></span>
+          <span class="toggle-text">Dark Mode</span>
+        </button>
+      </header>
+
+      <section class="project-layout">
+        <div class="project-info">
+          <p class="project-eyebrow">Assistive Technology</p>
+          <h1 class="project-title">Smart Stick</h1>
+          <p class="project-summary">
+            A project to develop a device to aid visually impaired individuals in navigation and obstacle detection in urban environments.
+            I worked on creating a prototype which used bluetooth as a means of locating the device indoors.
+          </p>
+          <dl class="project-meta">
+            <div class="project-meta-item">
+              <dt>Role</dt>
+              <dd>Hardware & ML Lead</dd>
+            </div>
+            <div class="project-meta-item">
+              <dt>Timeline</dt>
+              <dd>12 weeks</dd>
+            </div>
+            <div class="project-meta-item">
+              <dt>Stack</dt>
+              <dd>ESP32, TensorFlow Lite, Fusion 360, KiCad</dd>
+            </div>
+          </dl>
+          <div class="project-links">
+            <a class="project-link" href="https://github.com/rayyanmohamed36/Smart-Stick" target="_blank" rel="noopener noreferrer">View Repository</a>
+          </div>
+        </div>
+
+        <div class="project-narrative">
+          <p>
+            I started by researching methods of triangulating position indoors using Bluetooth Low Energy (BLE) beacons.
+            After testing various algorithms, I implemented a multilateration approach that allowed the smart stick to
+            estimate its position based on signal strength from multiple beacons placed in the environment.
+            This enabled users to receive real-time feedback on their location within indoor spaces such as malls or
+            metro stations.
+          </p>
+          <p>
+            For the hardware design, I selected the ESP32 microcontroller due to its built-in BLE capabilities and low power consumption.
+            I tested different methods of setting them up as BLE beacons and optimized their placement for maximum coverage and accuracy.
+            Their position data was also stored as a grid within a room. The smart stick would then compare the received signal strengths to this grid to estimate its location.
+          </p>
+          <p>
+            I created a basic android app using python that would connect the phone to the BLE beacons and relay the signal strength data to the smart stick via serial communication.
+            The phone would then process this data to assist in accurate indoor positioning. However, BLE on its own was not sufficient for obstacle detection.
+            I worked on investigating other methods such as the implementation of UWB (ultra wide band) for more precise ranging and NFC for short-range object detection.
+          </p>
+          <p>
+            Due to the time constraints of the project, I was unable to fully integrate these additional technologies into the prototype.
+            However, I documented the research and proposed designs for future iterations of the smart stick that would incorporate these features.
+            Overall, this project provided valuable experience in hardware prototyping, wireless communication, and assistive technology design.
+            I look forward to continuing development on the smart stick to create a more comprehensive solution for visually impaired navigation.
+          </p>
+          <p>
+            In the future, I plan to create similar projects that focus on using technology to improve accessibility for individuals with disabilities. The code I prototyped
+            and the algorithms I researched are available on GitHub for others to build upon.
+          </p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const body = document.body;
+      const modeToggle = document.querySelector('.mode-toggle');
+      const textEl = modeToggle?.querySelector('.toggle-text');
+
+      const setTheme = (theme) => {
+        body.classList.remove('theme-dark', 'theme-light');
+        body.classList.add(theme);
+        modeToggle?.setAttribute('aria-pressed', theme === 'theme-light');
+        if (textEl) textEl.textContent = theme === 'theme-light' ? 'Dark Mode' : 'Light Mode';
+        localStorage.setItem('portfolio-theme', theme);
+      };
+
+      const storedTheme = localStorage.getItem('portfolio-theme');
+      const initialTheme = storedTheme || 'theme-light';
+      setTheme(initialTheme);
+
+      modeToggle?.addEventListener('click', () => {
+        const isLight = body.classList.contains('theme-light');
+        setTheme(isLight ? 'theme-dark' : 'theme-light');
+      });
+    });
+  </script>
+</body>
+</html>
